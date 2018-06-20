@@ -1,0 +1,35 @@
+<div class="container">
+
+<h1>Post#index</h1>
+<a href="/posts/new">글 쓰러 가기 </a>
+
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col-1">글 번호</th>
+        <th scope="col-6">제목</th>
+        <th scope="col-3">작성일</th>
+        <th scope="col-2">삭제</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post|%>
+      <tr>
+        <th scope="row">
+          <%= post.id%>
+        </th>
+        <td>
+          <a href="/posts/<%= post.id%>"><%= post.title%></a>
+        </td>
+        <td>
+          <%= post.created_at%>
+        </td>
+        <td>
+          <button type="button" class="btn btn-light"  onclick = "location.href = '/posts/<%= post.id%>/destroy'">삭제하기</button>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
