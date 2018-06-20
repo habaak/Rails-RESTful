@@ -3,7 +3,9 @@
 
   <h1>게시판</h1>
   <p>글을 수정해주세요</p>
-<form action="/posts/<%= @post.id%>/update">
+<form action="/posts/<%= @post.id%>">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
   <div class="form-group">
     <label for="exampleFormControlInput1">Title</label>
     <input name="title" type="test" class="form-control" id="exampleFormControlInput1" value="<%= @post.title%>">

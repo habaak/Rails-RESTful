@@ -26,7 +26,7 @@
           <%= post.created_at%>
         </td>
         <td>
-          <button type="button" class="btn btn-light"  onclick = "location.href = '/posts/<%= post.id%>/destroy'">삭제하기</button>
+          <a href="/posts/<%=post.id%>" data-method="delete" data-confirm="정말 삭제하시겠습니까?">[게시글 삭제]</a>
         </td>
       </tr>
       <%end%>
