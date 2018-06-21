@@ -1,13 +1,20 @@
 <div class="container">
-<p>
-  <%= @post.id%> 번째 게시글
-</p>
-<p>
-  제목 : <%= @post.title%>
-</p>
-<p>
-  내용 : <%= @post.content%>
-</p>
-<button type="button" class="btn btn-light"  onclick = "location.href = '/posts/<%=@post.id%>/edit'">수정하기</button>
-<!-- <a href="/posts/<%=@post.id%>/edit">수정하기</a> -->
+  <div class="mt-5">
+    <header>
+      <h1 data-role="bind" data-name="detailTitle" style="text-align:center;"><%= @post.title%></h1>
+      <div style="text-align:right;">
+        <p><%= @post.id%> 번째 게시글</p>
+
+        <time datetime="" data-role="bind" data-name="detailCreateAtDesc"><%=@post.created_at%></time>
+      </div>
+    </header>
+    <div style="width:  100%; height: 300px; border:1px solid;">
+      <p>
+        <%= @post.content%>
+      </p>
+    </div>
+    <div>
+      <button type="button" class="btn btn-light"  onclick = "location.href = '/posts/<%=@post.id%>/edit'">수정하기</button>
+    </div>
+  </div>
 </div>
