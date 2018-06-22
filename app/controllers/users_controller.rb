@@ -29,6 +29,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def Posts
+    @user = User.find(params[:id])
+    @posts = @user.posts
+  end
+
   def login
 
   end
@@ -41,7 +46,7 @@ class UsersController < ApplicationController
       if(user.authenticate(params[:password]))
     # 1.1.1 비밀번호가 일치하면 -> 로그인
         session[:user_id] = user.id
-        flash[:notice] = "#{user.username}님 어서오세C 요. 꽤 보고 싶었다구요~~"
+        flash[:notice] = "#{user.username}님 어서오세요. 꽤 보고 싶었다구요~~"
         redirect_to "/"
     # 1.1.2 비밀번호가 다르면 -> flash
       else
@@ -57,6 +62,7 @@ class UsersController < ApplicationController
 
   def logout
     session.clear
+    flash[:notice] = "로그아웃 되셨습니다."
     redirect_to '/'
   end
 end

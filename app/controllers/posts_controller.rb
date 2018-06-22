@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  #intercepter
+  before_action :authorize, except: :index
+
   def index
     @posts = Post.all
   end
@@ -7,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post=Post.create(title: params[:title], content: params[:content])
+    post=Post.create(title: params[:title], content: params[:content], username: params[:username])
     flash[:notice] = "글이 작성되었습니다."
     redirect_to "/posts/#{post.id}"
   end

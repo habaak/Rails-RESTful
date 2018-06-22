@@ -8,7 +8,8 @@
     <thead>
       <tr>
         <th class="w-10">글 번호</th>
-        <th class="w-50">제목</th>
+        <th class="w-20">작성자</th>
+        <th class="w-30">제목</th>
         <th class="w-30">작성일</th>
         <th class="w-10">삭제</th>
       </tr>
@@ -18,6 +19,9 @@
       <tr onclick="location.href='/posts/<%= post.id%>'">
         <th scope="row">
           <%= post.id%>
+        </th>
+        <td>
+          <%= post.username%>
         </th>
         <td>
           <%= post.title%>
